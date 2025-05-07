@@ -72,7 +72,7 @@ public class Qes1_13
 		 System.out.println("はじめまして" + name + "です");
 		 System.out.println("年齢は" + +(old + old) + "歳です");
 		 System.out.println("身長は" + +(height+ height) + "cmです");
-		 System.out.println("体重は" + +(weight + weight) +"kgです");
+		 System.out.println("体重は" + +(weight + weight) +"kgです"); 
 		 System.out.println("好きな食べ物は" + food + "です");
 		 System.out.println("BMIは"+ String.format("%.2f",weight / ((height / 100) * (height / 100))/2));
 		 
