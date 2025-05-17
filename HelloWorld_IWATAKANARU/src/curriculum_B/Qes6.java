@@ -5,53 +5,55 @@ import java.util.Scanner;
 
 public class Qes6 
 {
-	public static void main(String[] args) 
-	{
-        // 入力商品
-        String input = "パソコン、冷蔵庫、扇風機、洗濯機、加湿器、テレビ、ディスプレイ、その他商品";
-        String[] products = input.split("、");
+    public static void main(String[] args) 
+    {
+        // 商品一覧
+        String[] products = { "パソコン", "冷蔵庫", "扇風機", "洗濯機", "加湿器", "テレビ", "ディスプレイ", "その他商品" };
 
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
-        // 検索機能
-        System.out.print("商品名を入力してください：");
-        String keyword = scanner.nextLine().trim();
-
-        for (String product : products) 
-        {
-        	int stock = random.nextInt(12); // 0〜11のランダム在庫
-
-            switch (product) 
+        // 商品ごとの在庫をランダムに生成
+        java.util.Map<String, Integer> stockMap = new java.util.HashMap<>();
+        for (String product : products) {
+            int stock = random.nextInt(12); // 0～11
+            
+            if (product.equals("ディスプレイ")) 
             {
+                stockMap.put(product, 11 - stock); // ディスプレイ
+            } 
+            else 
+            {
+                stockMap.put(product, stock);
+            }
+        }
+
+        // ユーザー入力（「、」区切り）
+        System.out.print("商品名を入力してください：");
+        String[] keywords = scanner.nextLine().trim().split("、");
+
+        for (String keyword : keywords) 
+        {
+            keyword = keyword.trim(); // 前後の空白を除去
+
+            switch (keyword) 
+            {
+                case "パソコン":
+                case "冷蔵庫":
+                case "扇風機":
+                case "洗濯機":
+                case "加湿器":
                 case "テレビ":
-                case "ディスプレイ": //テレビとディスプレイの場合
-                	int actualStock = product.equals("ディスプレイ") ? (11 - stock) : stock;
-                    System.out.println(product.equals(keyword) ? product + "の残り台数は" + actualStock + "台です" : "");
+                case "ディスプレイ":
+                    System.out.println(keyword + "の残り台数は" + stockMap.get(keyword) + "台です");
                     break;
 
-                case "パソコン": //パソコンの場合
-                	System.out.println(product.equals(keyword) ? product + "の残り台数は" + stock + "台です" : "" );
-                	  break;
-           
-                case "冷蔵庫": //冷蔵庫の場合
-                	 System.out.println(product.equals(keyword) ? product + "の残り台数は" + stock + "台です":"" );
-                	  break;
-                	
-                case "扇風機": //扇風機の場合
-                	 System.out.println(product.equals(keyword) ? product + "の残り台数は" + stock + "台です":"" );
-                	  break;
-                	
-                case "洗濯機": //洗濯機の場合
-                	 System.out.println(product.equals(keyword) ? product + "の残り台数は" + stock + "台です":"" );
-                	  break;
-                	
-                case "加湿器"://加湿器の場合
-                    System.out.println(product.equals(keyword) ? product + "の残り台数は" + stock + "台です": "" );
+                case "その他商品":
+                    System.out.println("『 " + keyword + " 』は指定の商品ではありません");
                     break;
-                    
-               default://その他商品の場合
-                    System.out.println(product.equals(keyword) ? "『 " + product + " 』は指定の商品ではありません" : "" );
+
+                default:
+                    System.out.println("『 " + keyword + " 』は商品一覧に存在しません");
                     break;
             }
         }

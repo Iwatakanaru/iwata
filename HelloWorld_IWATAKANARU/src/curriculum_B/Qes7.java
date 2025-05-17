@@ -57,6 +57,17 @@ public class Qes7
 	            double avg = (double) subjectTotals[i] / studentCount;
 	            System.out.printf("%sの平均点は%.2f\n", subjects[i], avg);
 	        }
+	        
+	        //教科全体の平均点
+	        int grandTotal = 0;
+	        
+	        for (int i = 0; i < subjectCount; i++) 
+	        {
+	            grandTotal += subjectTotals[i];
+	        }
+	        
+	        double overallAverage = (double) grandTotal / (studentCount * subjectCount);
+	        System.out.printf("全体の平均点は%.2f\n", overallAverage);
 
 	        scanner.close();
 	  }

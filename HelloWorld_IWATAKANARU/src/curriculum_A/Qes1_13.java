@@ -5,15 +5,15 @@ public class Qes1_13
 	public static void main(String[] args)
 	{
 		//4
-		byte nByte;
-		short nShort;
-		int nInt;
-		long nLong;
-		float nFloat;
-		double nDouble;
-		char nChar;
-		String nString;
-		boolean nBoolean;
+		byte nByte = 0;
+		short nShort = 0;
+		int nInt = 0;
+		long nLong = 0L;
+		float nFloat = 0.0f;
+		double nDouble = 0.0;
+		char nChar = '\u0000'; // 空の文字（null文字）
+		String nString = "";   // 空文字列
+		boolean nBoolean = false;
 		
 		nByte = 10;
 		nShort = 100;

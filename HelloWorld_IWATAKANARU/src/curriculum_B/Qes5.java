@@ -8,8 +8,13 @@ public class Qes5
 		{
 			for(int nCount = 1; nCount <= 9; nCount++  ) //頭の数字にかける数字				
 			{
+				 if(nCount > 1) 
+				 {
+	                    System.out.print(" || ");
+				 }
+				 
 				//%03d 0（穴埋め数字),2(最小桁数),d(整数)
-				System.out.print ("| " + String.format("%03d", nCount) + " * " + String.format("%03d", nSuuzi) + " = " + String.format("%03d", (nCount * nSuuzi)) + " | ");
+				 System.out.print(String.format("%03d * %03d = %03d", nCount, nSuuzi, (nCount * nSuuzi)));
 			}
 			System.out.println();//段が変わるたびに改行する
 		}
