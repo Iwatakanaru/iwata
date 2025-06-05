@@ -5,16 +5,28 @@ import java.util.Random;
 public class  curriculum1_18
 {
 
-    // Q1
+	 // Q1
     public static void printMessage(String text, int number) 
     {
-        System.out.println(text + " " + "JavaSE " + number);
+        System.out.println(text + " JavaSE " + number);
     }
 
-    // Q2
+    // Q2（元のメソッド）
     public static void multiply(int a, int b) 
     {
         System.out.println("乗算結果: " + (a * b));
+    }
+
+    // Q2 オーバーロード1：double型
+    public static void multiply(double a, double b)
+    {
+        System.out.println("乗算結果(double): " + (a * b));
+    }
+
+    // Q2 オーバーロード2：int型3つ
+    public static void multiply(int a, int b, int c) 
+    {
+        System.out.println("乗算結果(3つ): " + (a * b * c));
     }
 
     // Q3
@@ -34,21 +46,19 @@ public class  curriculum1_18
     }
 
     // Q5
-    public static int[] generateRandomNumbers(int count)
+    public static int[] generateRandomNumbers(int count) 
     {
         Random rand = new Random();
         int[] result = new int[count];
         System.out.println("ランダム値:");
-        
-        for (int i = 0; i < count; i++)
+
+        for (int i = 0; i < count; i++) 
         {
             int num;
-            
-            do 
+            do
             {
                 num = rand.nextInt(100) + 1; // 1～100のランダム値
-            } 
-            while (num == 0);
+            } while (num == 0);
             result[i] = num;
             System.out.println(num);
         }
@@ -56,7 +66,8 @@ public class  curriculum1_18
     }
 
     // Q6
-    public static double calculateAverage(int[] numbers) {
+    public static double calculateAverage(int[] numbers)
+    {
         if (numbers.length == 0) return 0.0;
 
         int sum = 0;
@@ -70,7 +81,7 @@ public class  curriculum1_18
     }
 
     // Q7
-    public static boolean isAboveThreshold(double average)
+    public static boolean isAboveThreshold(double average) 
     {
         boolean result = average >= 50.0;
         System.out.println("50以上か？: " + result);
@@ -83,8 +94,12 @@ public class  curriculum1_18
         // Q1
         printMessage("Hello", 11);
 
-        // Q2
+        // Q2（元）
         multiply(5, 6);
+
+        // Q2 オーバーロードのテスト
+        multiply(2.5, 3.0);     // double
+        multiply(2, 3, 4);      // 3つのint
 
         // Q3
         int[] sampleArray = {10, 20, 30, 40};
