@@ -12,7 +12,7 @@ public class Qes1_13
 		float nFloat = 0.0f;
 		double nDouble = 0.0;
 		char nChar = '\u0000'; // 空の文字（null文字）
-		String nString = "";   // 空文字列
+		String nString = null;   // 空文字列
 		boolean nBoolean = false;
 		
 		nByte = 10;
