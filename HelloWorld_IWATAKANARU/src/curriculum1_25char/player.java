@@ -14,21 +14,25 @@ public class player extends character
     }
 
     // ステータスに使用するランダム値を生成するメソッド（0〜999）
-    private static int generateRandom() {
+    private static int generateRandom()
+    {
         return new Random().nextInt(1000);
     }
 
     // 名前のgetterとsetter
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) 
+    {
         this.name = name;
     }
 
     // プレイヤーのステータスを表示するメソッド
-    public void showStatus() {
+    public void showStatus() 
+    {
         System.out.println("こんにちは 「" + name + "」 さん");
         System.out.println("ステータス");
         System.out.println("HP：" + getHp());
